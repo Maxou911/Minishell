@@ -1,28 +1,25 @@
 # Minishell
 
+*This project has been created as part of the 42 curriculum by maalwis, uzyberaj*
+
 ## Description
 
-Minishell est une réimplémentation simplifiée d'un interpréteur de commandes Unix (shell).  
-Le projet a pour objectif de comprendre le fonctionnement interne d'un shell en reproduisant certaines fonctionnalités de Bash :
-
-- Lecture et affichage d'un prompt interactif
-- Exécution de commandes externes
-- Gestion des variables d'environnement
-- Gestion des redirections et des pipes
-- Implémentation de plusieurs builtins
-- Gestion des signaux
+Minishell is a simplified Unix shell implementation written in C.  
+The goal of this project is to understand how a shell works internally by reproducing some of Bash's core features, including command execution, pipes, redirections, environment variables, and signal handling.
 
 ---
 
-## Fonctionnalités
+## Features
 
-### Exécution de commandes
-- Recherche des exécutables via la variable `PATH`
-- Exécution de commandes avec `fork()` et `execve()`
-- Gestion du code de retour (`$?`)
+### Command Execution
+- Execution of external commands
+- Search for executables using the `PATH` environment variable
+- Process creation using `fork()`
+- Program execution using `execve()`
+- Management of command exit statuses (`$?`)
 
 ### Builtins
-- `echo` avec l'option `-n`
+- `echo` with the `-n` option
 - `cd`
 - `pwd`
 - `export`
@@ -31,37 +28,39 @@ Le projet a pour objectif de comprendre le fonctionnement interne d'un shell en 
 - `exit`
 
 ### Redirections
-- Entrée : `<`
-- Sortie : `>`
-- Ajout en fin de fichier : `>>`
-- Here-document : `<<`
+- Input redirection: `<`
+- Output redirection: `>`
+- Append redirection: `>>`
+- Here-document: `<<`
 
 ### Pipes
-- Gestion des pipes (`|`)
-- Exécution de plusieurs commandes chaînées
+- Support for pipes (`|`)
+- Execution of multiple commands connected through pipelines
 
-### Variables d'environnement
-- Expansion des variables (`$USER`, `$HOME`, etc.)
-- Gestion de la variable spéciale `$?`
+### Environment Variables
+- Expansion of environment variables (`$USER`, `$HOME`, etc.)
+- Support for the special variable `$?`
 
-### Gestion des guillemets
-- Guillemets simples `'...'`
-- Guillemets doubles `"..."`
+### Quotes Handling
+- Single quotes `'...'`
+- Double quotes `"..."`
 
-### Signaux
-- `Ctrl-C` : affiche un nouveau prompt, code retour : 130
-- `Ctrl-D` : quitte le shell
-- `Ctrl-\` : ignoré en mode interactif, code retour : 131
+### Signals
+- `Ctrl-C`: displays a new prompt, return code : 130
+- `Ctrl-D`: exits the shell
+- `Ctrl-\`: ignored in interactive mode, return code : 131r
 
 ---
 
 ## Compilation
 
+Build the project:
+
 ```bash
 make
 ```
 
-Règles disponibles :
+Available rules:
 
 ```bash
 make
@@ -72,15 +71,15 @@ make re
 
 ---
 
-## Utilisation
+## Usage
 
-Lancer le shell :
+Start the shell:
 
 ```bash
 ./minishell
 ```
 
-Exemples :
+Examples:
 
 ```bash
 minishell$ ls -la
@@ -92,19 +91,15 @@ minishell$ cat << EOF
 
 ---
 
-## Concepts abordés
+## Concepts Covered
 
-- Processus et `fork()`
+- Processes and `fork()`
 - `execve()`
-- Descripteurs de fichiers
-- Pipes et redirections
-- Variables d'environnement
-- Parsing d'une ligne de commande
-- Gestion des signaux
-- Gestion de la mémoire en C
+- File descriptors
+- Pipes and redirections
+- Environment variables
+- Command-line parsing
+- Signal handling
+- Memory management in C
 
 ---
-
-## Auteurs
-
-Projet réalisé dans le cadre du cursus de l'école 42.
